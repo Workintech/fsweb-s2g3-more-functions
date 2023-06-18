@@ -16,9 +16,13 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+  const dosyaAdi = path.split("/").pop();
+  return dosyaAdi;
 }
+let Path = " "; //C:/Users/johnsmith/Music/Beethoven_5.mp3
+//console.log(dosyaAdiniBul(Path));
+
 
 /*
   GÖREV 2
@@ -38,9 +42,18 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamaBul(array) {
+  if(array.length === 0) {
+    return null;
+  }else { 
+    let toplam = array.reduce((total, seri) => total + seri, 0);
+    let ortalama = Number(toplam / array.length);
+    return ortalama;; 
+  }
 }
+
+let Array = [] //[109, 216, 288, 143, 71, 185, -278, 194, 5];
+//console.log(ortalamaBul(Array))
 
 /*
   GÖREV 3
@@ -62,9 +75,25 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(seri, ortalamaBul) {
+  let seriOrtalama = ortalamaBul(seri);
+  let ortBuyuk = [];
+  if(seriOrtalama === null){
+    return null;
+  }else {
+    for (var i=0 ; i<seri.length ; i++) {
+      if (seri[i] >= seriOrtalama){
+        ortBuyuk.push(seri[i]);
+      }else{
+          continue;
+        }
+      }
+    }
+  return ortBuyuk;
 }
+
+let Seri= [109, 216, 288, 143, 71, 185, -278, 194, 5]
+console.log(ortalamadanBuyukleriBul(Seri, ortalamaBul))
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
