@@ -15,10 +15,15 @@
   örnek input:  ""
   örnek output: ""
 */
+let adress = "C:/Users/johnsmith/Music/Beethoven_5.mp3"
+function dosyaAdiniBul(path) {
+ let pathParts = path.split("/");
+ return pathParts[pathParts.length - 1];
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
 }
+
+console.log(dosyaAdiniBul(adress));
+
 
 /*
   GÖREV 2
@@ -38,9 +43,21 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
+let numbers = [50, -26, 153, 7]
+
+function ortalamaBul(numberArr) {
+  if (numberArr == 0){
+    return null;
+  }
+
+  let total= numberArr.reduce((tempTotal, item) => {
+    return tempTotal + item;
+  },0)
+  
+  let average = total / numberArr.length;
+  return average;
 }
+console.log(ortalamaBul(numbers));
 
 /*
   GÖREV 3
@@ -62,9 +79,27 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+
+function ortalamadanBuyukleriBul(numberArr, callback) {
+  let newArr = [];
+  let average = callback(numberArr);
+
+  if (numberArr == 0){
+    return null;
+  }
+  
+  for (let i = 0; i < numberArr.length; i++) {
+    if (numberArr[i] >= average) {
+      newArr.push(numberArr[i]);
+    }
+  }
+  return newArr;
+  }
+
+  console.log(ortalamadanBuyukleriBul(numbers, ortalamaBul));
+
+
+
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
 function as() {
